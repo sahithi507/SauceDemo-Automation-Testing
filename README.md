@@ -40,6 +40,15 @@ The checkout validation tests verify required-field behavior for:
 ```text
 SauceDemo_Automation/
 │
+├── tests/
+│   ├── test_login_pytest.py
+│   ├── test_invalid_login_pytest.py
+│   ├── test_products_pytest.py
+│   ├── test_remove_cart_pytest.py
+│   ├── test_checkout_pytest.py
+│   ├── test_checkout_validation_pytest.py
+│   └── test_logout_pytest.py
+│
 ├── test_login.py
 ├── test_invalid_login.py
 ├── test_products.py
@@ -48,15 +57,9 @@ SauceDemo_Automation/
 ├── test_checkout_validation.py
 ├── test_logout.py
 │
-├── test_login_pytest.py
-├── test_invalid_login_pytest.py
-├── test_products_pytest.py
-├── test_remove_cart_pytest.py
-├── test_checkout_pytest.py
-├── test_checkout_validation_pytest.py
-├── test_logout_pytest.py
-│
 ├── pytest.ini
+├── requirements.txt
+├── .gitignore
 └── README.md
 ```
 
@@ -64,14 +67,17 @@ SauceDemo_Automation/
 
 Open the VS Code terminal in the project folder and run:
 
+```powershell
 python -m pytest -s
-
+```
 
 ## Test Result
 
 The complete pytest test suite passed successfully:
 
+```text
 9 passed
+```
 
 ## Skills Demonstrated
 
@@ -97,4 +103,5 @@ The complete pytest test suite passed successfully:
 - Added assertions to verify expected application behavior.
 - Tested both successful and unsuccessful user scenarios.
 - Created reusable checkout validation logic.
+- Organized pytest test cases into a dedicated `tests` folder.
 - Executed the complete test suite using pytest, with all 9 tests passing.
