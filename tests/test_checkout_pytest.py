@@ -4,7 +4,11 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
 
+# ============================================================
+# HELPER: SET INPUT VALUE
+# ============================================================
 def set_input_value(driver, element, value):
+
     driver.execute_script(
         """
         const input = arguments[0];
@@ -34,6 +38,9 @@ def set_input_value(driver, element, value):
     )
 
 
+# ============================================================
+# TEST: CHECKOUT
+# ============================================================
 def test_checkout():
 
     driver = webdriver.Chrome()
@@ -54,6 +61,7 @@ def test_checkout():
                 (By.ID, "user-name")
             )
         )
+
         username.send_keys("standard_user")
 
         password = wait.until(
@@ -61,6 +69,7 @@ def test_checkout():
                 (By.ID, "password")
             )
         )
+
         password.send_keys("secret_sauce")
 
         login_button = wait.until(
@@ -68,6 +77,7 @@ def test_checkout():
                 (By.ID, "login-button")
             )
         )
+
         login_button.click()
 
         wait.until(
@@ -196,7 +206,7 @@ def test_checkout():
         print("Checkout information entered")
 
         # -----------------------------
-        # VERIFY VALUES
+        # VERIFY INFORMATION
         # -----------------------------
         first_name = wait.until(
             EC.visibility_of_element_located(
@@ -286,10 +296,18 @@ def test_checkout():
         # -----------------------------
         # VERIFY OVERVIEW
         # -----------------------------
-        overview_title = wait.until(
-            EC.visibility_of_element_located(
-                (By.CLASS_NAME, "title")
+        wait.until(
+            EC.text_to_be_present_in_element(
+                (By.CLASS_NAME, "title"),
+                "Checkout: Overview"
             )
+        )
+
+        # Re-find the element after the page
+        # finishes rendering to avoid stale element errors.
+        overview_title = driver.find_element(
+            By.CLASS_NAME,
+            "title"
         )
 
         print(
@@ -348,7 +366,7 @@ def test_checkout():
         assert total.text == "Total: $32.39"
 
         # -----------------------------
-        # FINISH
+        # FINISH ORDER
         # -----------------------------
         finish_button = wait.until(
             EC.element_to_be_clickable(
@@ -382,4 +400,5 @@ def test_checkout():
         print("Checkout test passed")
 
     finally:
+
         driver.quit()
