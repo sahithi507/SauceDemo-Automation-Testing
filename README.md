@@ -2,9 +2,9 @@
 
 ## Project Overview
 
-This project is a web application testing project created using Python, Selenium WebDriver, and pytest.
+This project is a web application testing project developed using Python, Selenium WebDriver, and pytest.
 
-The project automates common user workflows on the SauceDemo website and includes both positive and negative test scenarios.
+The project automates common user workflows on the SauceDemo website and includes positive and negative test scenarios to validate application functionality and expected behavior.
 
 ## Technologies Used
 
@@ -12,13 +12,13 @@ The project automates common user workflows on the SauceDemo website and include
 - Selenium WebDriver
 - pytest
 - Google Chrome
-- VS Code
+- Visual Studio Code
 
 ## Test Scenarios
 
-The automation suite covers:
+The automation suite covers the following scenarios:
 
-1. Login
+1. Valid Login
 2. Invalid Login
 3. Product Verification
 4. Add Product to Cart
@@ -35,19 +35,21 @@ The checkout validation tests verify required-field behavior for:
 - Missing Last Name
 - Missing Postal Code
 
+These validation scenarios are included as separate test cases in the pytest suite.
+
 ## Project Structure
 
 ```text
-SauceDemo_Automation/
+SauceDemo-Automation-Testing/
 │
 ├── tests/
-│   ├── test_login_pytest.py
-│   ├── test_invalid_login_pytest.py
-│   ├── test_products_pytest.py
-│   ├── test_remove_cart_pytest.py
 │   ├── test_checkout_pytest.py
 │   ├── test_checkout_validation_pytest.py
-│   └── test_logout_pytest.py
+│   ├── test_invalid_login_pytest.py
+│   ├── test_login_pytest.py
+│   ├── test_logout_pytest.py
+│   ├── test_products_pytest.py
+│   └── test_remove_cart_pytest.py
 │
 ├── test_login.py
 ├── test_invalid_login.py
@@ -63,21 +65,40 @@ SauceDemo_Automation/
 └── README.md
 ```
 
+The `tests/` directory contains the organized pytest automation suite. The Python files in the project root are the original standalone scripts.
+
+## Installation and Setup
+
+1. Clone or download the repository.
+2. Open the project folder in Visual Studio Code.
+3. Install the required dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+4. Ensure Google Chrome is installed.
+5. Run the automated test suite from the project root directory.
+
 ## Running the Tests
 
-Open the VS Code terminal in the project folder and run:
+Execute the following command in the VS Code terminal:
 
-```powershell
+```bash
 python -m pytest -s
 ```
 
-## Test Result
+The pytest configuration is defined in `pytest.ini` to discover the organized test files.
 
-The complete pytest test suite passed successfully:
+## Test Results
+
+The complete pytest test suite was executed successfully:
 
 ```text
 9 passed
 ```
+
+The nine test cases include the main login, product, cart, checkout, validation, and logout workflows.
 
 ## Skills Demonstrated
 
@@ -87,10 +108,9 @@ The complete pytest test suite passed successfully:
 - Positive and Negative Testing
 - UI Automation
 - Selenium WebDriver
-- Python
+- Python Programming
 - pytest
-- Assertions
-- Explicit Waits
+- Assertions and Explicit Waits
 - Element Locators
 - End-to-End Testing
 - Checkout Validation
@@ -98,10 +118,12 @@ The complete pytest test suite passed successfully:
 
 ## Project Highlights
 
-- Automated complete user workflows using Selenium WebDriver.
-- Used explicit waits to synchronize automation with the web application.
-- Added assertions to verify expected application behavior.
-- Tested both successful and unsuccessful user scenarios.
-- Created reusable checkout validation logic.
-- Organized pytest test cases into a dedicated `tests` folder.
-- Executed the complete test suite using pytest, with all 9 tests passing.
+- Automated common SauceDemo user workflows using Selenium WebDriver.
+- Implemented positive and negative test scenarios to validate application behavior.
+- Used explicit waits to synchronize browser interactions and improve test execution reliability.
+- Applied assertions to verify expected page behavior, messages, and validation results.
+- Created reusable checkout validation logic for multiple required-field scenarios.
+- Organized automated test cases into a dedicated `tests/` directory.
+- Configured pytest test discovery through `pytest.ini`.
+- Executed the test suite using pytest and recorded nine passing test cases.
+- Documented project setup, dependencies, test scenarios, and execution instructions for reproducibility.
